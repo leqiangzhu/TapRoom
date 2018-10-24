@@ -3,18 +3,38 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+  <div style="text-align:center" *ngFor="let tap of taps">{{tap.title}} <button (click)="editTap(tap)">Edit!</button>
+    <button (click)="sell(tap)">sell!</button><button (click)="income(tap)">check</button>
+    <ul style="text-align:center" >
+      <li>
+          {{tap.brand}}
+      </li>
+      <li>Price:
+          {{tap.price}}
+      </li>
+      <li>alcohuContent:
+          {{tap.alcoholContent}}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="selectedTap">    
+      <h3>{{selectedTap.title}}</h3>
+      <p>Tap Complete? {{selectedTap.done}}</p>
+      <h3>Edit Tap</h3>
+      <label>Enter Tap title:</label>
+      <input [(ngModel)]="selectedTap.title">
+      <input [(ngModel)]="selectedTap.brand">
+      <input [(ngModel)]="selectedTap.price">
+      <input [(ngModel)]="selectedTap.alcoholContent">
+      <input [(ngModel)]="selectedTap.pints">
+      <button (click)="finishedEditing()">Done</button>
+    </div>
+    <button (click)="addTap()">add</button>
+   
+ <!-- <div *ngIf="addTap()">
+      <input [(ngModel)]="newTap.title" type="text">
+      <input [(ngModel)]="newTap.brand" >
+      <input [(ngModel)]="newTap.price" >
+      <input [(ngModel)]="newTap.alcoholContent" >
+</div> -->
