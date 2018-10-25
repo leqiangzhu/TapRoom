@@ -3,21 +3,33 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+
+  <base href="/">
 </div>
-  <div style="text-align:center" *ngFor="let tap of taps">{{tap.title}} <button (click)="editTap(tap)">Edit!</button>
-    <button (click)="sell(tap)">sell!</button><button (click)="income(tap)">check</button>
+<body>
+
+  <div style="text-align:center" *ngFor="let tap of taps">{{tap.title}} 
+   <div><button (click)="editTap(tap)">Edit!</button>
+    <button (click)="sell(tap)">sell!</button><button (click)="income(tap)">check</button>  <button (click)="removeTap(tap)">Delete</button> </div>
     <ul style="text-align:center" >
       <li>
           {{tap.brand}}
       </li>
-      <li>Price:
+      <!-- [class]="priorityColor(currentTap)" -->
+      <div >
+      <li [class]="priorityColor(tap)"  >Price:
           {{tap.price}}
       </li>
-      <li>alcohuContent:
+    </div>
+      <li>alcoholContent:
           {{tap.alcoholContent}}
+      </li>
+      <li [class]="priorityPintsColor(tap)">Pints:
+          {{tap.pints}}
       </li>
     </ul>
   </div>
+  <div class="bg-warning">ddd</div>
   <div *ngIf="selectedTap">    
       <h3>{{selectedTap.title}}</h3>
       <p>Tap Complete? {{selectedTap.done}}</p>
@@ -32,9 +44,14 @@
     </div>
     <button (click)="addTap()">add</button>
    
- <!-- <div *ngIf="addTap()">
+ <div *ngIf="newTap">
       <input [(ngModel)]="newTap.title" type="text">
       <input [(ngModel)]="newTap.brand" >
       <input [(ngModel)]="newTap.price" >
       <input [(ngModel)]="newTap.alcoholContent" >
-</div> -->
+      <button (click)="finishedAdding()" class="bg-warning" >Done</button>
+</div>
+
+<li><a routerLink="about">About</a></li>
+
+</body>

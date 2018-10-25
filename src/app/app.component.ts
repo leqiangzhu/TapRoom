@@ -15,6 +15,7 @@ export class AppComponent {
   ]
 
   selectedTap: TapRoom = null;
+  newTap =null;
   editTap(clickedTap) {
    this.selectedTap = clickedTap;
  }
@@ -25,11 +26,16 @@ export class AppComponent {
    
 
   addTap(){
-    let newTap =new TapRoom();
-    newTap=new TapRoom(newTap.title,newTap.brand,newTap.price,newTap.alcoholContent);
-    this.taps.push(newTap);
+    let addTap =new TapRoom();
+    this.newTap=addTap;
+    this.taps.push(this.newTap);
   }
    
+  finishedAdding() {
+    this.newTap = 0;
+  }
+
+
 count :number =0;
   sell(clickedTap){
     
@@ -45,9 +51,40 @@ count :number =0;
   }
 
 
+  priorityColor(currentTap){
+    if (currentTap.price < 5){
+      return "bg-danger";
+    } 
+     if (currentTap.price > 34) {
+      return  "bg-warning";
+    } 
+    if(currentTap.price == 20)
+     {
+      return "bg-info";
+    }
+  }
+
+  priorityPintsColor(currentTap){
+    if (currentTap.pints <= 10){
+      return "bg-danger";
+    } else if (currentTap.pints > 10 && currentTap.pints<50) {
+      return  "bg-warning";
+    } else if(currentTap.pints > 50)
+     {
+      return "bg-info";
+    }
+  }
+
+
   income(clickedTap){
    let incomed =clickedTap.price*(100-clickedTap.pints);
     alert(incomed);
+
+  }
+
+  removeTap(clickedTap){
+    let clickId=this.taps.indexOf(clickedTap);
+    delete this.taps[clickId];
 
   }
 
