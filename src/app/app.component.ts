@@ -9,8 +9,8 @@ import { TapRoom } from './models/taproom.model';
 export class AppComponent {
   title = 'TAP ROOM';
   taps:TapRoom []=[
-    new TapRoom("NameA","brandA",9.5 ,3,100),
-    new TapRoom("NameB","brandB",11.5 ,4,100),
+    new TapRoom("NameA","brandA",9.5 ,3,9),
+    new TapRoom("NameB","brandB",11.5 ,4,45),
     new TapRoom("NameC","brandc",4.5 ,3,100)
   ]
 
@@ -81,13 +81,16 @@ count :number =0;
     alert(incomed);
 
   }
+//this method just clear the values
+  // removeTap(clickedTap){
+  //   let clickId=this.taps.indexOf(clickedTap);
+  //   delete this.taps[clickId];
 
+  // }
   removeTap(clickedTap){
     let clickId=this.taps.indexOf(clickedTap);
-    delete this.taps[clickId];
-
+    this.taps.splice(clickId,1);
   }
-
 
 
 

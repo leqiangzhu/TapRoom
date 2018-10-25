@@ -1,57 +1,75 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
+    <!--The content below is only a placeholder and can be replaced.-->
+    <div style="text-align:center">
+        <div class="jumbotron text-center">
+    <h1>
     Welcome to {{ title }}!
-  </h1>
-
-  <base href="/">
-</div>
-<body>
-
-  <div style="text-align:center" *ngFor="let tap of taps">{{tap.title}} 
-   <div><button (click)="editTap(tap)">Edit!</button>
-    <button (click)="sell(tap)">sell!</button><button (click)="income(tap)">check</button>  <button (click)="removeTap(tap)">Delete</button> </div>
-    <ul style="text-align:center" >
-      <li>
-          {{tap.brand}}
-      </li>
-      <!-- [class]="priorityColor(currentTap)" -->
-      <div >
-      <li [class]="priorityColor(tap)"  >Price:
-          {{tap.price}}
-      </li>
+    </h1>
     </div>
-      <li>alcoholContent:
-          {{tap.alcoholContent}}
-      </li>
-      <li [class]="priorityPintsColor(tap)">Pints:
-          {{tap.pints}}
-      </li>
+    <base href="/">
+    </div>
+    <body>
+        <div class="container">
+    <div style="text-align:center" *ngFor="let tap of taps"> 
+
+    <ul style="text-align:center" >
+    <li>
+    name:
+    {{tap.title}}
+    </li>
+    <li>
+    brand:
+    {{tap.brand}}
+    </li>
+    <!-- [class]="priorityColor(currentTap)" -->
+    <div >
+    <li ><span  [class]="priorityColor(tap)" >
+    Price:
+    {{tap.price}}
+    </span>
+
+    </li>
+    </div>
+    <li>alcoholContent:
+    {{tap.alcoholContent}}
+    </li>
+    <li >
+    <span [class]="priorityPintsColor(tap)">
+    Pints:
+    {{tap.pints}}
+    </span>
+
+    </li>
     </ul>
-  </div>
-  <div class="bg-warning">ddd</div>
-  <div *ngIf="selectedTap">    
-      <h3>{{selectedTap.title}}</h3>
-      <p>Tap Complete? {{selectedTap.done}}</p>
-      <h3>Edit Tap</h3>
-      <label>Enter Tap title:</label>
-      <input [(ngModel)]="selectedTap.title">
-      <input [(ngModel)]="selectedTap.brand">
-      <input [(ngModel)]="selectedTap.price">
-      <input [(ngModel)]="selectedTap.alcoholContent">
-      <input [(ngModel)]="selectedTap.pints">
-      <button (click)="finishedEditing()">Done</button>
+    <div><button (click)="editTap(tap)">Edit!</button>
+    <button (click)="sell(tap)">sell!</button>
+    <button (click)="income(tap)">check</button> 
+    <button (click)="removeTap(tap)">Delete</button>
+    </div>
+    <hr>
+    </div>
+    <div class="bg-warning">ddd</div>
+    <div *ngIf="selectedTap">    
+    <h3>{{selectedTap.title}}</h3>
+    <p>Tap Complete? {{selectedTap.done}}</p>
+    <h3>Edit Tap</h3>
+    <label>Enter Tap title:</label>
+    <input [(ngModel)]="selectedTap.title">
+    <input [(ngModel)]="selectedTap.brand">
+    <input [(ngModel)]="selectedTap.price">
+    <input [(ngModel)]="selectedTap.alcoholContent">
+    <input [(ngModel)]="selectedTap.pints">
+    <button (click)="finishedEditing()">Done</button>
     </div>
     <button (click)="addTap()">add</button>
-   
- <div *ngIf="newTap">
-      <input [(ngModel)]="newTap.title" type="text">
-      <input [(ngModel)]="newTap.brand" >
-      <input [(ngModel)]="newTap.price" >
-      <input [(ngModel)]="newTap.alcoholContent" >
-      <button (click)="finishedAdding()" class="bg-warning" >Done</button>
-</div>
 
-<li><a routerLink="about">About</a></li>
+    <div *ngIf="newTap">
+    <input [(ngModel)]="newTap.title" type="text">
+    <input [(ngModel)]="newTap.brand" >
+    <input [(ngModel)]="newTap.price" >
+    <input [(ngModel)]="newTap.alcoholContent" >
+    <button (click)="finishedAdding()" class="bg-warning" >Done</button>
+    </div>
 
-</body>
+    <li><a routerLink="about">About</a></li>
+    </div>
+    </body>
