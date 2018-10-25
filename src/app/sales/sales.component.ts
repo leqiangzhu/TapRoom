@@ -1,19 +1,29 @@
-//import { Component } from '@angular/core';
-import { TapRoom } from '../models/taproom.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sales-root',
+  selector: 'app-sales',
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.css']
 })
 export class SalesComponent implements OnInit {
+//this class is to record the thr order ,oder time,price,we can see when the store had most people,when is less,
+//and do some plan to boss
+//and see which one is most porplar
+  constructor(
+    public orderTime? : number
 
-    constructor() { }
-  
-    ngOnInit() {
-    }
-  
+
+
+  ) { }
+
+  ngOnInit() {
   }
 
-  
+  /**
+   * name
+   */
+  public name() {
+    
+  }
+
+}

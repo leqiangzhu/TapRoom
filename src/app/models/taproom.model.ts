@@ -5,4 +5,8 @@ export class TapRoom {
         ,public pints? :number,public income? : number
         ) { }
   // public income : number=this.price*this.pints;
+  //public money :number= this
+        
+   public left :number= this.pints;
+
   }

@@ -7,6 +7,16 @@ import { TapRoom } from './models/taproom.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  currentTime = new Date();
+  month: number = this.currentTime.getMonth() + 1;
+  day: number = this.currentTime.getDay();
+  year: number = this.currentTime.getFullYear();
+  hour:number=this.currentTime.getHours();
+  minutes : number=this.currentTime.getMinutes();
+  seconds : number=this.currentTime.getSeconds();
+  
+
   title = 'TAP ROOM';
   taps:TapRoom []=[
     new TapRoom("NameA","brandA",9.5 ,3,9),
@@ -66,12 +76,12 @@ count :number =0;
 
   priorityPintsColor(currentTap){
     if (currentTap.pints <= 10){
-      return "bg-danger";
+      return "progress-bar-danger";
     } else if (currentTap.pints > 10 && currentTap.pints<50) {
-      return  "bg-warning";
+      return  "progress-bar-info";
     } else if(currentTap.pints > 50)
      {
-      return "bg-info";
+      return "progress-bar-success";
     }
   }
 
@@ -91,6 +101,22 @@ count :number =0;
     let clickId=this.taps.indexOf(clickedTap);
     this.taps.splice(clickId,1);
   }
+
+  happyHour(){
+    if(this.hour>12 && this.minutes > 20){
+
+
+    }
+  }
+
+  getColor(){
+    if(6<10){
+      return 'red';
+    }
+    
+  }
+
+
 
 
 
